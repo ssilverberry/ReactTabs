@@ -5,7 +5,7 @@ import  Data  from 'components/tab/data/TestData';
 // tab's components
 import TabContent from 'components/tab/content/TabContent';
 import TabHead from 'components/tab/header/TabHead';
-import { TabNav, Wrapper } from 'components/tab/elements/TabElements';
+import { TabNav, Wrapper } from 'components/tab/styles/StyledElements';
 // prop types
 import PropTypes from 'prop-types';
 
@@ -29,10 +29,11 @@ class App extends Component {
         <TabNav>
           <TabHead data={Data}
             handleActive={this.handleClick}
-            primary={false}
             active={index}/>
         </TabNav>
-        <TabContent data={Data} active={index}/>
+        <TabContent data={Data} 
+                    active={index}
+                    />
       </Wrapper>
     );
   }
@@ -41,7 +42,6 @@ class App extends Component {
 TabHead.propTypes = {
   data: PropTypes.array.isRequired,
   handleActive: PropTypes.func.isRequired,
-  primary: PropTypes.bool,
   active: PropTypes.string
 }
 
