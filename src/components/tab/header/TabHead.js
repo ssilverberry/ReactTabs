@@ -1,7 +1,7 @@
 // react
 import React from 'react';
 // style
-import Title from 'components/tab/styles/StyledElements';
+import {Title} from 'components/tab/styles/StyledElements';
 // prop types
 import PropTypes from 'prop-types';
 

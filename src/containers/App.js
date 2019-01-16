@@ -6,10 +6,8 @@ import  Data  from 'components/tab/data/TestData';
 import TabContent from 'components/tab/content/TabContent';
 import TabHead from 'components/tab/header/TabHead';
 import { TabNav, Wrapper } from 'components/tab/styles/StyledElements';
-// prop types
-import PropTypes from 'prop-types';
 
-class App extends Component {
+class App extends Component {  
   state = { index: 'FIRST' }
 
   handleClick = (index) => {
@@ -32,21 +30,10 @@ class App extends Component {
             active={index}/>
         </TabNav>
         <TabContent data={Data} 
-                    active={index}
-                    />
+                    active={index}/>
       </Wrapper>
     );
   }
-}
-
-TabHead.propTypes = {
-  data: PropTypes.array.isRequired,
-  handleActive: PropTypes.func.isRequired,
-  active: PropTypes.string
-}
-
-TabHead.defaultProps = {
-  primary: false
 }
 
 export default App;
