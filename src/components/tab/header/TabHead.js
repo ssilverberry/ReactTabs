@@ -1,5 +1,9 @@
+// react
 import React from 'react';
+// styled
 import styled from 'styled-components';
+// prop types
+import PropTypes from 'prop-types';
 
 const Title = styled.div`
   padding: 10px 7px;
@@ -25,6 +29,12 @@ const TabHead = (props) => {
       </Title>
     );
   });
+}
+
+Title.propTypes = {
+  onClick: PropTypes.func.isRequired,
+  tabindex: PropTypes.string.isRequired,
+  primary: PropTypes.bool
 }
 
 export default TabHead;
