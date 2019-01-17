@@ -20,7 +20,7 @@ const TabHead = ({ tabData, handleActive, active }) =>
 TabHead.propTypes = {
   tabData: PropTypes.array.isRequired,
   handleActive: PropTypes.func.isRequired,
-  active: PropTypes.bool.isRequired
+  active: PropTypes.string.isRequired
 }
 
 export default TabHead;

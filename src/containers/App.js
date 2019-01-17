@@ -11,11 +11,7 @@ import { TabNav, Wrapper } from 'styles/tabs';
 
 class App extends Component {
   state = {
-    activeTab: tabsMap.FIRST,
-    tableConst: '',
-    elemtnData: {
-      isActive: true
-    }
+    activeTab: tabsMap.FIRST
   };
 
   handleClick = (activeTab) => {
@@ -31,7 +27,7 @@ class App extends Component {
           <TabHead
             tabData={tabData}
             handleActive={this.handleClick}
-            active={index}
+            active={activeTab}
           />
         </TabNav>
         <Fragment>
