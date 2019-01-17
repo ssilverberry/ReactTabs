@@ -1,36 +1,44 @@
-// react import
-import React, { Component } from 'react';
-// data for tests
-import  Data  from 'components/tab/data/TestData';
+import React, { Component, Fragment } from 'react';
 // tab's components
-import TabContent from 'components/tab/content/TabContent';
-import TabHead from 'components/tab/header/TabHead';
-import { TabNav, Wrapper } from 'components/tab/styles/StyledElements';
+import TabHead from 'components/tabs/header/TabHead';
+import ImgContent from 'components/tabs/content/ImgContent';
+import TextContent from 'components/tabs/content/TextContent';
+import TableContent from 'components/tabs/content/TableContent';
+// constants
+import { tabsMap, tabData } from 'constants/tabs';
+// styles
+import { TabNav, Wrapper } from 'styles/tabs';
 
-class App extends Component {  
-  state = { index: 'FIRST' }
+class App extends Component {
+  state = {
+    activeTab: tabsMap.FIRST,
+    tableConst: '',
+    elemtnData: {
+      isActive: true
+    }
+  };
 
-  handleClick = (index) => {
-    const pointer = index;
-    this.setState({ index: pointer });
+  handleClick = (activeTab) => {
+    this.setState({ activeTab });
   }
 
   render() {
-    const {
-      state: {
-        index
-      }
-    } = this;
+    const { activeTab } = this.state;
 
     return (
       <Wrapper>
         <TabNav>
-          <TabHead data={Data}
+          <TabHead
+            tabData={tabData}
             handleActive={this.handleClick}
-            active={index}/>
+            active={index}
+          />
         </TabNav>
-        <TabContent data={Data} 
-                    active={index}/>
+        <Fragment>
+          {tabsMap.FIRST === activeTab && <ImgContent />}
+          {tabsMap.SECOND === activeTab && <TextContent />}
+          {tabsMap.THIRD === activeTab && <TableContent />}
+        </Fragment>
       </Wrapper>
     );
   }
