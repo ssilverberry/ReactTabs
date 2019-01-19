@@ -4,22 +4,36 @@ import TabHead from 'components/tabs/header/TabHead';
 import ImgContent from 'components/tabs/content/ImgContent';
 import TextContent from 'components/tabs/content/TextContent';
 import TableContent from 'components/tabs/content/TableContent';
-// constants
+// accordion's components
+import AccordionHeader from 'components/accordion/header/AccordionHeader'
+import { AcrdContainer } from 'styles/accordions'
+// tab constants
 import { tabsMap, tabData } from 'constants/tabs';
+// accordion constants
+import { acrdnsMap, acrdnsData } from 'constants/accordions';
 // styles
 import { TabNav, Wrapper } from 'styles/tabs';
 
 class App extends Component {
   state = {
-    activeTab: tabsMap.FIRST
+    activeTab: tabsMap.FIRST,
+    activeAccordion: ''
   };
 
   handleClick = (activeTab) => {
     this.setState({ activeTab });
   }
 
+  handleAccordionClick = ( activeAccordion ) => {
+    this.setState({ activeAccordion });
+    if (this.state.activeAccordion === activeAccordion)
+      this.setState({ activeAccordion: '' });
+
+    console.log(this.state.activeAccordion, this.state.expanded, activeAccordion);
+  }
+
   render() {
-    const { activeTab } = this.state;
+    const { activeTab, activeAccordion, expanded } = this.state;
 
     return (
       <Wrapper>
@@ -31,7 +45,16 @@ class App extends Component {
           />
         </TabNav>
         <Fragment>
-          {tabsMap.FIRST === activeTab && <ImgContent />}
+          {tabsMap.FIRST === activeTab && 
+            <AcrdContainer>
+              <AccordionHeader
+                accordionData={acrdnsData}
+                handleActive={this.handleAccordionClick}
+                active={activeAccordion}
+                isExpanded={expanded}
+              />             
+            </AcrdContainer>
+          }
           {tabsMap.SECOND === activeTab && <TextContent />}
           {tabsMap.THIRD === activeTab && <TableContent />}
         </Fragment>

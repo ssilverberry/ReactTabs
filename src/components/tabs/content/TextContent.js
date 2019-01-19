@@ -1,10 +1,12 @@
 import React from 'react'
+// styles
+import { Content } from 'styles/tabs'
 
 const TextContent = () => (
-  <div>
+  <Content>
     <h2>SecondTab</h2>
     <div>We will</div>
-  </div>
+  </Content>
 )
 
 export default TextContent
