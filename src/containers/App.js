@@ -24,9 +24,8 @@ class App extends Component {
   };
 
   handleAccordionClick = activeAccordion => {
-    // Better solution
-    this.setState(() => {
-      if (this.state.activeAccordion === activeAccordion)
+    this.setState(state => {
+      if (state.activeAccordion === activeAccordion)
         return { activeAccordion: "" };
       return { activeAccordion: activeAccordion };
     });
