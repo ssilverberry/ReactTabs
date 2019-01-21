@@ -8,27 +8,19 @@ import AccordionContent from "components/accordion/content/AccordionContent";
 // prop types
 import PropTypes from "prop-types";
 
-const AccordionHeader = ({ accordionData, handleActive, active, isExpanded }) =>
-  accordionData.map(({ primaryText, secondaryText, index }, i) => (
+const AccordionHeader = ({ accordionData, handleActive, active }) =>
+  accordionData.map(({ primaryText, secondaryText, index }) => (
     <Fragment>
       <AcrdHeader
         key={index}
         onClick={() => handleActive(index)}
         isClicked={active === index}
       >
-        <AcrdText key={i} isPrimary>
-          {primaryText}
-        </AcrdText>
+        <AcrdText isPrimary>{primaryText}</AcrdText>
         <AcrdArrow isClicked={active === index} />
       </AcrdHeader>
-      {acrdnsMap.FIRST === active && (
-        <AccordionContent text={primaryText} isActive={active === index} />
-      )}
-      {acrdnsMap.SECOND === active && (
-        <AccordionContent text={primaryText} isActive={active === index} />
-      )}
-      {acrdnsMap.THIRD === active && (
-        <AccordionContent text={primaryText} isActive={active === index} />
+      {active === index && (
+        <AccordionContent text={secondaryText} isActive={active === index} />
       )}
     </Fragment>
   ));
