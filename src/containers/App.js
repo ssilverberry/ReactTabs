@@ -25,9 +25,9 @@ class App extends Component {
 
   handleAccordionClick = activeAccordion => {
     this.setState(state => {
-      if (state.activeAccordion === activeAccordion)
-        return { activeAccordion: "" };
-      return { activeAccordion: activeAccordion };
+      return { 
+        activeAccordion: state.activeAccordion !== activeAccordion ? activeAccordion : ''
+      };
     });
   };
 
