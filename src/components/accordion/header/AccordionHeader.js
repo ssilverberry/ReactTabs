@@ -1,22 +1,20 @@
 import React, { Fragment } from "react";
-// accordion constants
-import { acrdnsMap } from "constants/accordions";
 // style
 import { AcrdHeader, AcrdText, AcrdArrow } from "styles/accordions";
-// component
+// accordion component
 import AccordionContent from "components/accordion/content/AccordionContent";
 // prop types
 import PropTypes from "prop-types";
 
 const AccordionHeader = ({ accordionData, handleActive, active }) =>
   accordionData.map(({ primaryText, secondaryText, index }) => (
-    <Fragment>
+    <Fragment key={index}>
       <AcrdHeader
-        key={index}
         onClick={() => handleActive(index)}
         isClicked={active === index}
       >
         <AcrdText isPrimary>{primaryText}</AcrdText>
+        <AcrdText>{secondaryText}</AcrdText>
         <AcrdArrow isClicked={active === index} />
       </AcrdHeader>
       {active === index && (
@@ -26,7 +24,7 @@ const AccordionHeader = ({ accordionData, handleActive, active }) =>
   ));
 
 AccordionHeader.propTypes = {
-  accordionData: PropTypes.array.isRequired,
+  accordionData: PropTypes.arrayOf(PropTypes.object).isRequired,
   handleActive: PropTypes.func.isRequired,
   active: PropTypes.string
 };

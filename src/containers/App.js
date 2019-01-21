@@ -2,7 +2,6 @@ import React, { Component, Fragment } from "react";
 // tab's components
 import TabHead from "components/tabs/header/TabHead";
 import ImgContent from "components/tabs/content/ImgContent";
-import TextContent from "components/tabs/content/TextContent";
 import TableContent from "components/tabs/content/TableContent";
 // accordion's components
 import AccordionHeader from "components/accordion/header/AccordionHeader";
@@ -25,23 +24,12 @@ class App extends Component {
   };
 
   handleAccordionClick = activeAccordion => {
-    // Not the best solution
-    //this.setState({ activeAccordion });
-    // if (this.state.activeAccordion === activeAccordion)
-    //   this.setState({ activeAccordion: "" });
-
     // Better solution
     this.setState(() => {
       if (this.state.activeAccordion === activeAccordion)
         return { activeAccordion: "" };
       return { activeAccordion: activeAccordion };
     });
-
-    console.log(
-      this.state.activeAccordion,
-      this.state.expanded,
-      activeAccordion
-    );
   };
 
   render() {
@@ -67,7 +55,7 @@ class App extends Component {
               />
             </AcrdContainer>
           )}
-          {tabsMap.SECOND === activeTab && <TextContent />}
+          {tabsMap.SECOND === activeTab && <ImgContent />}
           {tabsMap.THIRD === activeTab && <TableContent />}
         </Fragment>
       </Wrapper>
