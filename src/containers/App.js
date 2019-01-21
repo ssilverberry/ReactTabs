@@ -16,7 +16,7 @@ import { TabNav, Wrapper } from "styles/tabs";
 class App extends Component {
   state = {
     activeTab: tabsMap.FIRST,
-    activeAccordion: ""
+    activeAccordion: ''
   };
 
   handleClick = activeTab => {
@@ -25,8 +25,9 @@ class App extends Component {
 
   handleAccordionClick = activeAccordion => {
     this.setState(state => {
-      return { 
-        activeAccordion: state.activeAccordion !== activeAccordion ? activeAccordion : ''
+      return {
+        activeAccordion:
+          state.activeAccordion !== activeAccordion ? activeAccordion : ''
       };
     });
   };
