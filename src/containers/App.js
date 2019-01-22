@@ -24,12 +24,12 @@ class App extends Component {
   };
 
   handleAccordionClick = activeAccordion => {
-    this.setState(state => {
-      return {
-        activeAccordion:
-          state.activeAccordion !== activeAccordion ? activeAccordion : ''
-      };
-    });
+    // after 
+    this.setState(state => ({
+      activeAccordion:
+        state.activeAccordion !== activeAccordion ? activeAccordion : ''
+    })
+    );
   };
 
   render() {
