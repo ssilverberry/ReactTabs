@@ -2,14 +2,17 @@ import React, { Component, Fragment } from "react";
 // tab's components
 import TabHead from "components/tabs/header/TabHead";
 import ImgContent from "components/tabs/content/ImgContent";
-import TableContent from "components/tabs/content/TableContent";
 // accordion's components
 import AccordionHeader from "components/accordion/header/AccordionHeader";
 import { AcrdContainer } from "styles/accordions";
+// table
+import Table from 'components/table/Table'
 // tab constants
 import { tabsMap, tabData } from "constants/tabs";
 // accordion constants
 import { acrdnsData } from "constants/accordions";
+// table constants
+import { titles, content } from 'constants/tables'
 // styles
 import { TabNav, Wrapper } from "styles/tabs";
 
@@ -56,7 +59,7 @@ class App extends Component {
             </AcrdContainer>
           )}
           {tabsMap.SECOND === activeTab && <ImgContent />}
-          {tabsMap.THIRD === activeTab && <TableContent />}
+          {tabsMap.THIRD === activeTab && <Table titles={titles} content={content} />}
         </Fragment>
       </Wrapper>
     );
