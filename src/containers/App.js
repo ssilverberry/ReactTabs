@@ -58,8 +58,8 @@ class App extends Component {
               />
             </AcrdContainer>
           )}
-          {tabsMap.SECOND === activeTab && <ImgContent />}
-          {tabsMap.THIRD === activeTab && <Table titles={titles} content={content} />}
+          {tabsMap.SECOND === activeTab && <Table titles={titles} content={content} />}
+          {tabsMap.THIRD === activeTab && <ImgContent />}
         </Fragment>
       </Wrapper>
     );

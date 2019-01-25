@@ -5,7 +5,7 @@ export const tabsMap = {
 }
 
 export const tabData = [
-  { title: 'Lets', index: 'FIRST' },
-  { title: 'Rock', index: 'SECOND' },
-  { title: 'It', index: 'THIRD' },
+  { title: 'Accordions', index: 'FIRST' },
+  { title: 'Table', index: 'SECOND' },
+  { title: 'Snackbars', index: 'THIRD' },
 ]
