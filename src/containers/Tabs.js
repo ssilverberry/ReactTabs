@@ -4,7 +4,7 @@ import { tabsMap, tabData } from 'constants/tabs';
 
 class Tabs extends Component {
   state = {
-    activeTab: tabsMap.FIRST
+    activeTab: this.props.defaultTab
   }
 
   handleClick = activeTab => {
@@ -12,7 +12,7 @@ class Tabs extends Component {
   };
 
   render() {
-    const { render } = this.props;
+    const { render, tabData } = this.props;
     const { activeTab } = this.state;
 
     return <Fragment>

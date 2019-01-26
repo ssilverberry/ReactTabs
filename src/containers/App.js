@@ -8,7 +8,7 @@ import { AcrdContainer } from "styles/accordions";
 // table
 import Table from 'components/table'
 // tab constants
-import { tabsMap } from "constants/tabs";
+import { tabsMap, tabData } from "constants/tabs";
 // accordion constants
 import { acrdnsData } from "constants/accordions";
 // table constants
@@ -37,28 +37,29 @@ class App extends Component {
 
     return (
       <Wrapper>
-        <Tabs render={({ tabData, handleActive, active }) => (
-          <Fragment>
-            <TabNav>
-              <TabHead
-                tabData={tabData}
-                handleActive={handleActive}
-                active={active}
-              />
-            </TabNav>
-            {tabsMap.FIRST === active && (
-              <AcrdContainer>
-                <AccordionHeader
-                  accordionData={acrdnsData}
-                  handleActive={this.handleAccordionClick}
-                  active={activeAccordion}
+        <Tabs defaultTab={'SECOND'}
+          tabData={tabData}
+          render={({ handleActive, active }) => (
+            <Fragment>
+              <TabNav>
+                <TabHead
+                  handleActive={handleActive}
+                  active={active}
                 />
-              </AcrdContainer>
-            )}
-            {tabsMap.SECOND === active && <Table titles={titles} content={content} />}
-            {tabsMap.THIRD === active && <ImgContent />}
-          </Fragment>
-        )}/>
+              </TabNav>
+              {tabsMap.FIRST === active && (
+                <AcrdContainer>
+                  <AccordionHeader
+                    accordionData={acrdnsData}
+                    handleActive={this.handleAccordionClick}
+                    active={activeAccordion}
+                  />
+                </AcrdContainer>
+              )}
+              {tabsMap.SECOND === active && <Table titles={titles} content={content} />}
+              {tabsMap.THIRD === active && <ImgContent />}
+            </Fragment>
+          )} />
       </Wrapper>
     );
   }
