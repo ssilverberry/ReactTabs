@@ -8,26 +8,28 @@ import { AcrdContainer } from "styles/accordions";
 // table
 import Table from 'components/table/Table'
 // tab constants
-import { tabsMap, tabData } from "constants/tabs";
+import { tabsMap } from "constants/tabs";
 // accordion constants
 import { acrdnsData } from "constants/accordions";
 // table constants
 import { titles, content } from 'constants/tables'
 // styles
 import { TabNav, Wrapper } from "styles/tabs";
+// Tabs container
+import Tabs from 'containers/Tabs';
+
 
 class App extends Component {
   state = {
-    activeTab: tabsMap.FIRST,
+    //activeTab: tabsMap.FIRST,
     activeAccordion: ''
   };
 
-  handleClick = activeTab => {
+  /*handleClick = activeTab => {
     this.setState({ activeTab });
-  };
+  };*/
 
   handleAccordionClick = activeAccordion => {
-    // after 
     this.setState(state => ({
       activeAccordion:
         state.activeAccordion !== activeAccordion ? activeAccordion : ''
@@ -36,31 +38,32 @@ class App extends Component {
   };
 
   render() {
-    const { activeTab, activeAccordion, expanded } = this.state;
+    const { activeAccordion } = this.state;
 
     return (
       <Wrapper>
-        <TabNav>
-          <TabHead
-            tabData={tabData}
-            handleActive={this.handleClick}
-            active={activeTab}
-          />
-        </TabNav>
-        <Fragment>
-          {tabsMap.FIRST === activeTab && (
-            <AcrdContainer>
-              <AccordionHeader
-                accordionData={acrdnsData}
-                handleActive={this.handleAccordionClick}
-                active={activeAccordion}
-                isExpanded={expanded}
+        <Tabs render={({ tabData, handleActive, active }) => (
+          <Fragment>
+            <TabNav>
+              <TabHead
+                tabData={tabData}
+                handleActive={handleActive}
+                active={active}
               />
-            </AcrdContainer>
-          )}
-          {tabsMap.SECOND === activeTab && <Table titles={titles} content={content} />}
-          {tabsMap.THIRD === activeTab && <ImgContent />}
-        </Fragment>
+            </TabNav>
+            {tabsMap.FIRST === active && (
+              <AcrdContainer>
+                <AccordionHeader
+                  accordionData={acrdnsData}
+                  handleActive={this.handleAccordionClick}
+                  active={activeAccordion}
+                />
+              </AcrdContainer>
+            )}
+            {tabsMap.SECOND === active && <Table titles={titles} content={content} />}
+            {tabsMap.THIRD === active && <ImgContent />}
+          </Fragment>
+        )}/>
       </Wrapper>
     );
   }
