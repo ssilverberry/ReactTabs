@@ -6,7 +6,7 @@ import ImgContent from "components/tabs/content/ImgContent";
 import AccordionHeader from "components/accordion/header/AccordionHeader";
 import { AcrdContainer } from "styles/accordions";
 // table
-import Table from 'components/table/Table'
+import Table from 'components/table'
 // tab constants
 import { tabsMap } from "constants/tabs";
 // accordion constants
