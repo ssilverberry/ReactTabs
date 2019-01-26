@@ -1,6 +1,4 @@
 import React, { Component, Fragment } from 'react';
-// tab constants
-import { tabsMap, tabData } from 'constants/tabs';
 
 class Tabs extends Component {
   state = {
