@@ -15,7 +15,7 @@ import { acrdnsData } from "constants/accordions";
 import { titles, content } from 'constants/tables'
 // styles
 import { TabNav, Wrapper } from "styles/tabs";
-// Tabs container
+// tabs container
 import Tabs from 'containers/Tabs';
 
 
@@ -37,14 +37,16 @@ class App extends Component {
 
     return (
       <Wrapper>
-        <Tabs defaultTab={'SECOND'}
-          tabData={tabData}
-          render={({ handleActive, active }) => (
+        <Tabs 
+          defaultTab={'SECOND'}
+          defaultTabData={tabData}
+          render={({ tabData, handleActive, active }) => (
             <Fragment>
               <TabNav>
                 <TabHead
                   handleActive={handleActive}
                   active={active}
+                  tabData={tabData}
                 />
               </TabNav>
               {tabsMap.FIRST === active && (
