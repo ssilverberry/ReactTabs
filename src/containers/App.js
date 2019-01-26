@@ -21,13 +21,8 @@ import Tabs from 'containers/Tabs';
 
 class App extends Component {
   state = {
-    //activeTab: tabsMap.FIRST,
     activeAccordion: ''
   };
-
-  /*handleClick = activeTab => {
-    this.setState({ activeTab });
-  };*/
 
   handleAccordionClick = activeAccordion => {
     this.setState(state => ({
