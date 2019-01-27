@@ -3,7 +3,6 @@ import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 
 class Tabs extends Component {
-
   static propTypes = {
     defaultTab: PropTypes.string.isRequired,
     defaultTabData: PropTypes.arrayOf(PropTypes.object).isRequired
@@ -23,12 +22,12 @@ class Tabs extends Component {
   };
 
   render() {
-    const { render, defaultTabData } = this.props;
+    const { children, defaultTabData } = this.props;
     const { activeTab } = this.state;
 
     return (
       <Fragment>
-        {render({
+        {children({
           active: activeTab,
           handleActive: this.handleClick,
           tabData: defaultTabData

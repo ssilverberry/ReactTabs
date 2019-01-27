@@ -37,10 +37,11 @@ class App extends Component {
 
     return (
       <Wrapper>
-        <Tabs 
+        <Tabs
           defaultTab={'SECOND'}
           defaultTabData={tabData}
-          render={({ tabData, handleActive, active }) => (
+        >
+          {({ tabData, handleActive, active }) =>
             <Fragment>
               <TabNav>
                 <TabHead
@@ -61,7 +62,8 @@ class App extends Component {
               {tabsMap.SECOND === active && <Table titles={titles} content={content} />}
               {tabsMap.THIRD === active && <ImgContent />}
             </Fragment>
-          )} />
+          }
+        </Tabs>
       </Wrapper>
     );
   }
