@@ -1,54 +1,44 @@
-import React, { Component, Fragment } from "react";
+import React, { Component, Fragment } from 'react'
 // tab's components
-import TabHead from "components/tabs/header/TabHead";
-import ImgContent from "components/tabs/content/ImgContent";
+import TabHead from 'components/tabs/header/TabHead'
+import ImgContent from 'components/tabs/content/ImgContent'
 // accordion's components
-import AccordionHeader from "components/accordion/header/AccordionHeader";
-import { AcrdContainer } from "styles/accordions";
+import AccordionHeader from 'components/accordion/header/AccordionHeader'
+import { AcrdContainer } from 'styles/accordions'
 // table
 import Table from 'components/table'
 // tab constants
-import { tabsMap, tabData } from "constants/tabs";
+import { tabsMap, tabData } from 'constants/tabs'
 // accordion constants
-import { acrdnsData } from "constants/accordions";
+import { acrdnsData } from 'constants/accordions'
 // table constants
 import { titles, content } from 'constants/tables'
 // styles
-import { TabNav, Wrapper } from "styles/tabs";
+import { TabNav, Wrapper } from 'styles/tabs'
 // tabs container
-import Tabs from 'containers/Tabs';
-
+import Tabs from 'containers/Tabs'
 
 class App extends Component {
   state = {
     activeAccordion: ''
-  };
+  }
 
   handleAccordionClick = activeAccordion => {
     this.setState(state => ({
-      activeAccordion:
-        state.activeAccordion !== activeAccordion ? activeAccordion : ''
-    })
-    );
-  };
+      activeAccordion: state.activeAccordion !== activeAccordion ? activeAccordion : ''
+    }))
+  }
 
   render() {
-    const { activeAccordion } = this.state;
+    const { activeAccordion } = this.state
 
     return (
       <Wrapper>
-        <Tabs
-          defaultTab={'SECOND'}
-          defaultTabData={tabData}
-        >
-          {({ tabData, handleActive, active }) =>
+        <Tabs defaultTab={'FIRST'} defaultTabData={tabData}>
+          {({ tabData, handleActive, active }) => (
             <Fragment>
               <TabNav>
-                <TabHead
-                  handleActive={handleActive}
-                  active={active}
-                  tabData={tabData}
-                />
+                <TabHead handleActive={handleActive} active={active} tabData={tabData} />
               </TabNav>
               {tabsMap.FIRST === active && (
                 <AcrdContainer>
@@ -62,11 +52,11 @@ class App extends Component {
               {tabsMap.SECOND === active && <Table titles={titles} content={content} />}
               {tabsMap.THIRD === active && <ImgContent />}
             </Fragment>
-          }
+          )}
         </Tabs>
       </Wrapper>
-    );
+    )
   }
 }
 
-export default App;
+export default App
