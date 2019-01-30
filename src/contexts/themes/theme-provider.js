@@ -10,18 +10,15 @@ export const ThemeContext = React.createContext({
 })
 
 class ThemeProvider extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      theme: themes.light,
-      toggleTheme: this.toggleTheme
-    }
+  state = {
+    theme: themes.light,
+    toggleTheme: this.toggleTheme
+  }
 
-    this.toggleTheme = () => {
-      this.setState(state => ({
-        theme: state.theme === themes.dark ? themes.light : themes.dark
-      }))
-    }
+  toggleTheme = () => {
+    this.setState(state => ({
+      theme: state.theme === themes.dark ? themes.light : themes.dark
+    }))
   }
 
   render() {
