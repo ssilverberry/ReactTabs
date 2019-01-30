@@ -15,30 +15,35 @@ import { acrdnsData } from 'constants/accordions'
 import { titles, content } from 'constants/tables'
 // styles
 import { TabNav, Wrapper } from 'styles/tabs'
-// tabs container
-import Tabs from 'containers/Tabs'
 // hoc(s)
 import withAccordion from 'hoc/withAccordion'
+// theme provider
+import ThemeProvider from 'contexts/themes/theme-provider'
+// React hook
+import useTabs from 'containers/Tabs'
 
-const App = ({ handleActiveAcc, activeAcc }) => (
-  <Wrapper>
-    <Tabs defaultTab={'FIRST'} defaultTabData={tabData}>
-      {({ tabData, handleActive, active }) => (
+const App = ({ handleActiveAcc, activeAcc }) => {
+  const defaultTab = 'FIRST'
+  const defaultTabData = tabData
+  const [activeTab, changeActive] = useTabs(defaultTab)
+
+  return (
+    <Wrapper>
+      <ThemeProvider>
         <Fragment>
-          <TabNav>
-            <TabHead handleActive={handleActive} active={active} tabData={tabData} />
-          </TabNav>
-          {tabsMap.FIRST === active && (
+          <TabHead handleActive={changeActive} active={activeTab} tabData={defaultTabData} />
+
+          {tabsMap.FIRST === activeTab && (
             <AcrdContainer>
               <AccordionHeader accordionData={acrdnsData} handleActive={handleActiveAcc} active={activeAcc} />
             </AcrdContainer>
           )}
-          {tabsMap.SECOND === active && <Table titles={titles} content={content} />}
-          {tabsMap.THIRD === active && <ImgContent />}
+          {tabsMap.SECOND === activeTab && <Table titles={titles} content={content} />}
+          {tabsMap.THIRD === activeTab && <ImgContent />}
         </Fragment>
-      )}
-    </Tabs>
-  </Wrapper>
-)
+      </ThemeProvider>
+    </Wrapper>
+  )
+}
 
 export default withAccordion(App)

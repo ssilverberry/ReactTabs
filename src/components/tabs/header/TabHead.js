@@ -1,21 +1,30 @@
 // react
-import React from 'react';
+import React from 'react'
 // style
-import { Title } from 'styles/tabs';
+import { Title, TabNav } from 'styles/tabs'
 // prop types
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
+// theme context hoc
+import withThemeContext from 'hoc/withThemeContext'
 
-const TabHead = ({ tabData, handleActive, active }) =>
-  tabData.map(({ title, index }) =>
-    <Title
-      key={index}
-      onClick={() => handleActive(index)}
-      tabindex={index}
-      primary={active === index}
-    >
-      {title}
-    </Title>
+const TabHead = ({ tabData, handleActive, active, context }) => {
+  return (
+    <TabNav background={context.theme.background} color={context.theme.color}>
+      {tabData.map(({ title, index }) => (
+        <Title
+          key={index}
+          onClick={() => handleActive(index)}
+          tabindex={index}
+          primary={active === index}
+          background={context.theme.background}
+          color={context.theme.color}
+        >
+          {title}
+        </Title>
+      ))}
+    </TabNav>
   )
+}
 
 TabHead.propTypes = {
   tabData: PropTypes.array.isRequired,
@@ -23,4 +32,4 @@ TabHead.propTypes = {
   active: PropTypes.string.isRequired
 }
 
-export default TabHead;
+export default withThemeContext(TabHead)

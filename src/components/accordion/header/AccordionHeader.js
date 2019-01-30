@@ -5,11 +5,18 @@ import { AcrdHeader, AcrdText, AcrdArrow } from 'styles/accordions'
 import AccordionContent from 'components/accordion/content/AccordionContent'
 // prop types
 import PropTypes from 'prop-types'
+// theme context hoc
+import withThemeContext from 'hoc/withThemeContext'
 
-const AccordionHeader = ({ accordionData, handleActive, active }) =>
+const AccordionHeader = ({ accordionData, handleActive, active, context }) =>
   accordionData.map(({ primaryText, secondaryText, index }) => (
     <Fragment key={index}>
-      <AcrdHeader onClick={() => handleActive(index)} isClicked={active === index}>
+      <AcrdHeader
+        onClick={() => handleActive(index)}
+        isClicked={active === index}
+        background={context.theme.background}
+        color={context.theme.color}
+      >
         <AcrdText isPrimary>{primaryText}</AcrdText>
         <AcrdText>{secondaryText}</AcrdText>
         <AcrdArrow isClicked={active === index} />
@@ -24,4 +31,4 @@ AccordionHeader.propTypes = {
   active: PropTypes.string
 }
 
-export default AccordionHeader
+export default withThemeContext(AccordionHeader)
