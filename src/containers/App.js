@@ -18,7 +18,7 @@ import { Wrapper } from 'styles/tabs'
 // hoc(s)
 import withAccordion from 'hoc/withAccordion'
 // theme provider
-import ThemeProvider from 'contexts/themes/theme-provider'
+import ThemeProvider from 'contexts/themes/ThemeProvider'
 // React hook
 import useTabs from 'containers/Tabs'
 

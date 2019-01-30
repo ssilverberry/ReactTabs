@@ -1,13 +1,10 @@
 import React from 'react'
-// theme(s) context
+// theme(s)
 import { themes } from 'contexts/themes/themes'
+// theme(s) context
+import { ThemeContext } from 'contexts/themes/ThemeContext'
 // material button
 import ThemeButton from 'components/button'
-
-export const ThemeContext = React.createContext({
-  theme: themes.light,
-  toggleTheme: () => {}
-})
 
 class ThemeProvider extends React.Component {
   state = {

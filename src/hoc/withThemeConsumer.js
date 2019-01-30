@@ -1,6 +1,6 @@
 import React from 'react'
 // theme provider
-import { ThemeContext } from 'contexts/themes/theme-provider'
+import { ThemeContext } from 'contexts/themes/ThemeContext'
 
 const withThemeConsumer = WrappedComponent => {
   return class EnhancedComponent extends React.Component {
