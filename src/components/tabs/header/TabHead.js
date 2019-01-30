@@ -4,8 +4,8 @@ import React from 'react'
 import { Title, TabNav } from 'styles/tabs'
 // prop types
 import PropTypes from 'prop-types'
-// theme context hoc
-import withThemeContext from 'hoc/withThemeContext'
+// theme consumer hoc
+import withThemeConsumer from 'hoc/withThemeConsumer'
 
 const TabHead = ({ tabData, handleActive, active, context }) => {
   return (
@@ -32,4 +32,4 @@ TabHead.propTypes = {
   active: PropTypes.string.isRequired
 }
 
-export default withThemeContext(TabHead)
+export default withThemeConsumer(TabHead)

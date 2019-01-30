@@ -7,7 +7,7 @@ import TableHeader from 'components/table/header/TableHeader'
 // prop types
 import PropTypes from 'prop-types'
 // theme context hoc
-import withThemeContext from 'hoc/withThemeContext'
+import withThemeConsumer from 'hoc/withThemeConsumer'
 
 const Table = ({ titles, content, context }) => {
   return (
@@ -30,4 +30,4 @@ Table.propTypes = {
   content: PropTypes.arrayOf(PropTypes.object).isRequired
 }
 
-export default withThemeContext(Table)
+export default withThemeConsumer(Table)

@@ -5,8 +5,8 @@ import { AcrdHeader, AcrdText, AcrdArrow } from 'styles/accordions'
 import AccordionContent from 'components/accordion/content/AccordionContent'
 // prop types
 import PropTypes from 'prop-types'
-// theme context hoc
-import withThemeContext from 'hoc/withThemeContext'
+// theme consumer hoc
+import withThemeConsumer from 'hoc/withThemeConsumer'
 
 const AccordionHeader = ({ accordionData, handleActive, active, context }) =>
   accordionData.map(({ primaryText, secondaryText, index }) => (
@@ -31,4 +31,4 @@ AccordionHeader.propTypes = {
   active: PropTypes.string
 }
 
-export default withThemeContext(AccordionHeader)
+export default withThemeConsumer(AccordionHeader)

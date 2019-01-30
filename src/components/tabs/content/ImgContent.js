@@ -1,8 +1,8 @@
 import React from 'react'
 // styles
 import { Content } from 'styles/tabs'
-// theme context hoc
-import withThemeContext from 'hoc/withThemeContext'
+// theme consumer hoc
+import withThemeConsumer from 'hoc/withThemeConsumer'
 
 const ImgContent = ({ context }) => (
   <Content background={context.theme.background} color={context.theme.color}>
@@ -14,4 +14,4 @@ const ImgContent = ({ context }) => (
   </Content>
 )
 
-export default withThemeContext(ImgContent)
+export default withThemeConsumer(ImgContent)

@@ -1,6 +1,6 @@
 import React from 'react'
 // theme(s) context
-import { themes } from 'contexts/themes/theme'
+import { themes } from 'contexts/themes/themes'
 // material button
 import ThemeButton from 'components/button'
 

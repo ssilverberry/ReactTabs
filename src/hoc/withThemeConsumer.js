@@ -2,7 +2,7 @@ import React from 'react'
 // theme provider
 import { ThemeContext } from 'contexts/themes/theme-provider'
 
-const withThemeContext = WrappedComponent => {
+const withThemeConsumer = WrappedComponent => {
   return class EnhancedComponent extends React.Component {
     render() {
       return (
@@ -12,4 +12,4 @@ const withThemeContext = WrappedComponent => {
   }
 }
 
-export default withThemeContext
+export default withThemeConsumer

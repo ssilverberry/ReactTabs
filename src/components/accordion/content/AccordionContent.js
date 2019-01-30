@@ -3,8 +3,8 @@ import React, { Fragment } from 'react'
 import { AcrdText, AcrdContent } from 'styles/accordions'
 // prop types
 import PropTypes from 'prop-types'
-// theme context hoc
-import withThemeContext from 'hoc/withThemeContext'
+// theme consumer hoc
+import withThemeConsumer from 'hoc/withThemeConsumer'
 
 const AccordionContent = ({ text, isActive, context }) => (
   <Fragment>
@@ -26,4 +26,4 @@ AccordionContent.propTypes = {
   text: PropTypes.string
 }
 
-export default withThemeContext(AccordionContent)
+export default withThemeConsumer(AccordionContent)
