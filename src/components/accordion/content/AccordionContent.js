@@ -10,7 +10,7 @@ const AccordionContent = ({ text, isActive, context }) => (
   <Fragment>
     {isActive && (
       <AcrdContent background={context.theme.background} color={context.theme.color}>
-        <AcrdText>{text}</AcrdText>
+        <AcrdText color={context.theme.color}>{text}</AcrdText>
         <AcrdText>
           {
             'Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit eos maiores, fugiat suscipit ab id quia unde maxime ad.'

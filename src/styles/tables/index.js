@@ -3,9 +3,9 @@ import styled from 'styled-components'
 
 const Container = styled.div`
   display: grid;
-  grid-template-columns: repeat(${({ tableTitle }) => tableTitle.length}, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   grid-template-rows: repeat(${({ tableContent }) => tableContent.length + 1}, minmax(50px, 1fr));
-  width: 100%;
+  min-width: 700px;
   margin: 0 auto;
   box-shadow: 0px 1px 3px 0px #999;
   background-color: ${({ background }) => background};

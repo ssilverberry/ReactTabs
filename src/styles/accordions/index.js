@@ -23,7 +23,7 @@ const AcrdHeader = styled.div`
 `
 
 const AcrdText = styled.div`
-  color: ${({ isPrimary }) => (isPrimary ? '#999' : '#999')};
+  color: ${({ color }) => color};
 `
 
 const AcrdArrow = styled.div`

@@ -10,7 +10,6 @@ const Title = styled.div`
   transition: all 0.5s
   padding-top: 20px
   padding-bottom: 20px
-  background-color: ${({ background }) => background /*? '#ccc' : '#eaeaea'*/}
   color: ${({ color }) => color}
   &:hover {
     background-color: ${({ primary }) => (primary ? '#aaa' : '#aaa')}
@@ -42,7 +41,8 @@ const TabNav = styled.div`
 
 const Wrapper = styled.div`
   position: relative;
-  width: 60%
+  min-width: 320px;
+  max-width: 60%;
   margin: 0 auto
   padding: 25px 0px
 `

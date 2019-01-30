@@ -14,7 +14,7 @@ import { acrdnsData } from 'constants/accordions'
 // table constants
 import { titles, content } from 'constants/tables'
 // styles
-import { TabNav, Wrapper } from 'styles/tabs'
+import { Wrapper } from 'styles/tabs'
 // hoc(s)
 import withAccordion from 'hoc/withAccordion'
 // theme provider
@@ -32,7 +32,6 @@ const App = ({ handleActiveAcc, activeAcc }) => {
       <ThemeProvider>
         <Fragment>
           <TabHead handleActive={changeActive} active={activeTab} tabData={defaultTabData} />
-
           {tabsMap.FIRST === activeTab && (
             <AcrdContainer>
               <AccordionHeader accordionData={acrdnsData} handleActive={handleActiveAcc} active={activeAcc} />
